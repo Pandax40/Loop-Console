@@ -2,6 +2,13 @@
 #include <iostream>
 #include "../Utility/Random.h"
 
+Piece::Piece()
+{
+	facing = static_cast<Face>(GenRandomNumber(0, 3));
+	int randType = GenRandomNumber(0, 4);
+	pieceType = static_cast<Type>(randType);
+}
+
 Piece::Piece(Type type)
 {
 	facing = static_cast<Face>(GenRandomNumber(0, 3));

@@ -19,6 +19,7 @@ public:
 		Bottom,
 		Left
 	};
+	Piece();
 	Piece(const Type type);
 	void Rotate();
 	bool CheckFace(Face face);
