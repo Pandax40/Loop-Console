@@ -23,6 +23,7 @@ public:
 	Piece(const Type type);
 	void Rotate();
 	bool CheckFace(Face face);
+	Type GetType();
 private:
 	Type pieceType;
 	Face facing;

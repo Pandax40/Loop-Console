@@ -61,3 +61,8 @@ bool Piece::CheckFace(Face face)
 		break;
 	}
 }
+
+Piece::Type Piece::GetType()
+{
+	return pieceType;
+}
