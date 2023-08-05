@@ -2,8 +2,13 @@
 //
 
 #include <iostream>
+#include "Tablero/Piece.h" 
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Piece piece(Piece::Type::InterseccionTriple);
+    while (true)
+    {
+        piece.Rotate();
+    }
 }
