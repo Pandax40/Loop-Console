@@ -6,9 +6,13 @@
 
 int main()
 {
-    Piece piece(Piece::Type::InterseccionTriple);
+    Piece piece(Piece::Type::Recta);
     while (true)
     {
         piece.Rotate();
+        std::cout << std::boolalpha << piece.CheckFace(Piece::Top) << ' ';
+        std::cout << std::boolalpha << piece.CheckFace(Piece::Right) << ' ';
+        std::cout << std::boolalpha << piece.CheckFace(Piece::Bottom) << ' ';
+        std::cout << std::boolalpha << piece.CheckFace(Piece::Left) << '\n';
     }
 }

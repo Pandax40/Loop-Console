@@ -24,7 +24,6 @@ public:
 	bool CheckFace(Face face);
 private:
 	Type pieceType;
-	std::map<Face, bool> conectors = { {Top, false}, { Right, false }, { Bottom, false }, { Left, false } };
 	Face facing;
 };
 

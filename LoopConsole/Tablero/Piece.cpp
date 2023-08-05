@@ -6,121 +6,51 @@ Piece::Piece(Type type)
 {
 	facing = static_cast<Face>(GenRandomNumber(0, 3));
 	pieceType = type;
-	auto it = conectors.find(facing);
-	switch (type)
-	{
-	case Piece::Nodo:
-		it->second = true;
-		break;
-	case Piece::Recta:
-		it->second = true;
-		for (int i = 0; i < 2; ++i)
-		{
-			++it;
-			if (it == conectors.end()) 
-				it = conectors.begin();
-		}
-		it->second = true;
-		break;
-	case Piece::Curva:
-		it->second = true;
-		++it;
-		if (it == conectors.end()) 
-			it = conectors.begin();
-		it->second = true;
-		break;
-	case Piece::InterseccionTriple:
-		if (it == conectors.begin()) 
-			it = conectors.end();
-		--it;
-		for (int i = 0; i < 3; ++i)
-		{
-			(it++)->second = true;
-			if (it == conectors.end()) 
-				it = conectors.begin();
-		}
-		break;
-	case Piece::InterseccionQuadruple:
-		for (auto it = conectors.begin(); it != conectors.end(); ++it)
-			it->second = true;
-		break;
-	default:
-		break;
-	}
-
-	for (auto it = conectors.begin(); it != conectors.end(); ++it)
-		std::cout << it->first << ' ' << it->second << '\n';
-	std::cout << '\n';
 }
 
 void Piece::Rotate()
 {
-	auto it = conectors.find(facing);
-	switch (pieceType)
+	switch (facing)
 	{
-	case Piece::Nodo:
-		it->second = false;
-		++it;
-		if (it == conectors.end())
-			it = conectors.begin();
-		it->second = true;
+	case Piece::Top:
+		facing = Right;
 		break;
-	case Piece::Recta:
-		it = conectors.begin();
-		if (facing == Top || facing == Bottom)
-		{
-			it->second = false;
-			(++it)->second = true;
-			(++it)->second = false;
-			(++it)->second = true;
-		}
-		else
-		{
-			it->second = true;
-			(++it)->second = false;
-			(++it)->second = true;
-			(++it)->second = false;
-		}
+	case Piece::Right:
+		facing = Bottom;
 		break;
-	case Piece::Curva:
-		it->second = false;
-		for (int i = 0; i < 2; ++i)
-		{
-			++it;
-			if (it == conectors.end())
-				it = conectors.begin();
-		}
-		it->second = true;
+	case Piece::Bottom:
+		facing = Left;
 		break;
-	case Piece::InterseccionTriple:
-		if (it == conectors.begin())
-			it = conectors.end();
-		--it;
-		it->second = false;
-		for (int i = 0; i < 3; ++i)
-		{
-			++it;
-			if (it == conectors.end())
-				it = conectors.begin();
-		}
-		it->second = true;
+	case Piece::Left:
+		facing = Top;
 		break;
 	default:
 		break;
 	}
-
-	it = conectors.find(facing);
-	++it;
-	if (it == conectors.end())
-		it = conectors.begin();
-	facing = it->first;
-
-	for (auto it = conectors.begin(); it != conectors.end(); ++it)
-		std::cout << it->first << ' ' << it->second << '\n';
-	std::cout << '\n';
 }
 
 bool Piece::CheckFace(Face face)
 {
-	return conectors.find(face)->second;
+	switch (pieceType)
+	{
+	case Piece::Nodo:
+		return face == facing;
+		break;
+	case Piece::Recta:
+		return face == facing || face == (facing + 2) % 4;
+		break;
+	case Piece::Curva:
+		return face == facing || face == (facing + 1) % 4;
+		break;
+	case Piece::InterseccionTriple:
+		if (facing == Top)
+			return face == Left || face == Top || face == Right;	
+		return face == (facing - 1) || face == facing || face == (facing + 1) % 4;
+		break;
+	case Piece::InterseccionQuadruple:
+		return true;
+		break;
+	default:
+		break;
+	}
 }
