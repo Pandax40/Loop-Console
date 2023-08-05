@@ -36,7 +36,7 @@ void Piece::Rotate()
 	}
 }
 
-bool Piece::CheckFace(Face face)
+const bool Piece::CheckFace(Face face)
 {
 	switch (pieceType)
 	{
@@ -62,7 +62,7 @@ bool Piece::CheckFace(Face face)
 	}
 }
 
-Piece::Type Piece::GetType()
+const Piece::Type Piece::GetType()
 {
 	return pieceType;
 }
