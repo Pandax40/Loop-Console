@@ -6,11 +6,11 @@ class Piece
 public:
 	enum Type
 	{
-		Nodo,
-		Recta,
-		Curva,
-		InterseccionTriple,
-		InterseccionQuadruple
+		Node,
+		Line,
+		Curve,
+		TripleJunction,
+		QuadrupleJunction
 	};
 	enum Face
 	{

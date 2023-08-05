@@ -33,21 +33,21 @@ bool Piece::CheckFace(Face face)
 {
 	switch (pieceType)
 	{
-	case Piece::Nodo:
+	case Piece::Node:
 		return face == facing;
 		break;
-	case Piece::Recta:
+	case Piece::Line:
 		return face == facing || face == (facing + 2) % 4;
 		break;
-	case Piece::Curva:
+	case Piece::Curve:
 		return face == facing || face == (facing + 1) % 4;
 		break;
-	case Piece::InterseccionTriple:
+	case Piece::TripleJunction:
 		if (facing == Top)
 			return face == Left || face == Top || face == Right;	
 		return face == (facing - 1) || face == facing || face == (facing + 1) % 4;
 		break;
-	case Piece::InterseccionQuadruple:
+	case Piece::QuadrupleJunction:
 		return true;
 		break;
 	default:
