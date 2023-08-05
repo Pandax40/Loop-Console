@@ -130,7 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LoopConsole.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Tablero\Piece.cpp" />
   </ItemGroup>
   <ItemGroup>
