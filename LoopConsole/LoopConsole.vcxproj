@@ -130,10 +130,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Graphics\Console.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tablero\PieceMatrix.cpp" />
     <ClCompile Include="Tablero\Piece.cpp" />
+    <ClCompile Include="Utility\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Graphics\Console.h" />
+    <ClInclude Include="Const\Const.h" />
+    <ClInclude Include="Tablero\PieceMatrix.h" />
     <ClInclude Include="Tablero\Piece.h" />
     <ClInclude Include="Utility\Random.h" />
   </ItemGroup>
