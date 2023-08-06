@@ -24,6 +24,7 @@ public:
 	void Rotate();
 	const bool CheckFace(Face face);
 	const Type GetType();
+	const Face GetFace();
 private:
 	Type pieceType;
 	Face facing;

@@ -66,3 +66,8 @@ const Piece::Type Piece::GetType()
 {
 	return pieceType;
 }
+
+const Piece::Face Piece::GetFace()
+{
+	return facing;
+}
