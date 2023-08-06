@@ -39,9 +39,8 @@ int main()
     consoleInputHandler = GetStdHandle(STD_INPUT_HANDLE);
     consoleOutputHandler = GetStdHandle(STD_OUTPUT_HANDLE);
     windowHandler = GetConsoleWindow();
-    if (consoleOutputHandler == INVALID_HANDLE_VALUE or consoleInputHandler == INVALID_HANDLE_VALUE or windowHandler == INVALID_HANDLE_VALUE or WindowsSetters())
+    if (consoleOutputHandler == INVALID_HANDLE_VALUE or consoleInputHandler == INVALID_HANDLE_VALUE or windowHandler == INVALID_HANDLE_VALUE or !WindowsSetters())
         return GetLastError();
-
     Piece piece(Piece::Type::Line);
     PieceMatrix matrix;
     while (true)
