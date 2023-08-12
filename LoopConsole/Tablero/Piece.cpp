@@ -1,5 +1,4 @@
 #include "Piece.h"
-#include <iostream>
 #include "../Utility/Random.h"
 
 Piece::Piece()
@@ -58,6 +57,7 @@ const bool Piece::CheckFace(Face face)
 		return true;
 		break;
 	default:
+		return false;
 		break;
 	}
 }

@@ -1,12 +1,9 @@
-#include <iostream>
 #include <windows.h>
 #include "Tablero/Piece.h" 
 #include "Tablero/PieceMatrix.h"
 #include "Const/Const.h"
 
 #include <wchar.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 static const wchar_t* keyUp = L"\x1b[A";
 static const wchar_t* keyDown = L"\x1b[B";

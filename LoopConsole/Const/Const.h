@@ -11,7 +11,7 @@ namespace GLOBALS
 	inline constexpr int FIGURE_SIZE_Y = 5;
 	inline constexpr int MATRIX_BASE_X = 8;
 	inline constexpr int MATRIX_BASE_Y = 13;
-	inline const char * NODE_FIGURE[4][FIGURE_SIZE_Y] = { "   │ │   ", "  _│ │_  ", " │     │ ", " │_____│ ", "         ",
+	inline const char* NODE_FIGURE[4][FIGURE_SIZE_Y] = {  "   │ │   ", "  _│ │_  ", " │     │ ", " │_____│ ", "         ",
 												          "  ___    ", " │   │__ ", " │    __│", " │___│   ", "         ",
 														  "  _____  ", " │     │ ", " │_   _│ ", "   │ │   ", "   │_│   ",
 														  "    ___  ", " __│   │ ", "│__    │ ", "   │___│ ", "         " };
@@ -21,7 +21,7 @@ namespace GLOBALS
 														  "         ", " _______ ", "│_______│", "         ", "         " };
 	inline const char* CURVE_FIGURE[4][FIGURE_SIZE_Y] = { "   │ │   ", "   │ │__ ", "   │____│", "         ", "         ",
 														  "         ", "    ____ ", "   │  __│", "   │ │   ", "   │_│   ",
-														  "         ", " ____    ", "│___ │   ", "   │ │   ", "   │_│   ",
+														  "         ", " ____    ", "│__  │   ", "   │ │   ", "   │_│   ",
 														  "   │ │   ", " __│ │   ", "│____│   ", "         ", "         " };
 	inline const char* TRIPLE_FIGURE[4][FIGURE_SIZE_Y] = {"   │ │   ", " __│ │__ ", "│_______│", "         ", "         ",
 														  "   │ │   ", "   │ │__ ", "   │  __│", "   │ │   ", "   │_│   ",

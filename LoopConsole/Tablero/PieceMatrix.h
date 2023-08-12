@@ -1,5 +1,4 @@
 #pragma once
-#include <utility>
 #include "Piece.h"
 #include "../Graphics/Console.h"
 #include "../Const/Const.h"
@@ -16,6 +15,7 @@ public:
 private:
 	int posX, posY;
 	void FixUnions(int x, int y);
+	void Selected(bool isSelected);
 	Piece matrix[GLOBALS::ROW_MATRIX][GLOBALS::COLUMN_MATIX];
 };
 
