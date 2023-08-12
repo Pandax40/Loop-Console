@@ -15,7 +15,6 @@ public:
 	void Rotate();
 private:
 	int posX, posY;
-	void FixUnions(int x, int y);
 	void Selected(bool isSelected);
 	Level level;
 	Piece matrix[GLOBALS::ROW_MATRIX][GLOBALS::COLUMN_MATRIX];
