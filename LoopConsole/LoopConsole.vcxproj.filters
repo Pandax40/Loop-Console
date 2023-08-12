@@ -30,6 +30,12 @@
     <ClCompile Include="Utility\Random.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Tablero\Level.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Const\Levels.h">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tablero\Piece.h">
@@ -45,6 +51,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Console.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Tablero\Level.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

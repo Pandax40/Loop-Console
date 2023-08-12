@@ -1,5 +1,6 @@
 #pragma once
 #include "Piece.h"
+#include "Level.h"
 #include "../Graphics/Console.h"
 #include "../Const/Const.h"
 
@@ -16,6 +17,7 @@ private:
 	int posX, posY;
 	void FixUnions(int x, int y);
 	void Selected(bool isSelected);
-	Piece matrix[GLOBALS::ROW_MATRIX][GLOBALS::COLUMN_MATIX];
+	Level level;
+	Piece matrix[GLOBALS::ROW_MATRIX][GLOBALS::COLUMN_MATRIX];
 };
 

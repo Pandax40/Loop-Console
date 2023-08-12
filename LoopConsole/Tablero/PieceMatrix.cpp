@@ -1,5 +1,4 @@
 #include "PieceMatrix.h"
-#include "../Utility/Random.h"
 #include <iostream>
 
 void PieceMatrix::FixUnions(int x, int y)
@@ -23,7 +22,7 @@ void PieceMatrix::FixUnions(int x, int y)
 
 	if (matrix[y][x].CheckFace(Piece::Right))
 	{
-		if (x == GLOBALS::COLUMN_MATIX - 1 or !matrix[y][x + 1].CheckFace(Piece::Left))
+		if (x == GLOBALS::COLUMN_MATRIX - 1 or !matrix[y][x + 1].CheckFace(Piece::Left))
 		{
 			printf("\x1b[%d;%dH  ", (y * GLOBALS::FIGURE_SIZE_Y + GLOBALS::MATRIX_BASE_Y) + 2, (x * GLOBALS::FIGURE_SIZE_X + GLOBALS::MATRIX_BASE_X) + 9);
 			printf("\x1b[%d;%dH│ ", (y * GLOBALS::FIGURE_SIZE_Y + GLOBALS::MATRIX_BASE_Y) + 3, (x * GLOBALS::FIGURE_SIZE_X + GLOBALS::MATRIX_BASE_X) + 9);
@@ -35,7 +34,7 @@ void PieceMatrix::FixUnions(int x, int y)
 		}
 			
 	}
-	else if (x != GLOBALS::COLUMN_MATIX - 1)
+	else if (x != GLOBALS::COLUMN_MATRIX - 1)
 	{
 		if (matrix[y][x + 1].CheckFace(Piece::Left))
 		{
@@ -114,18 +113,9 @@ void PieceMatrix::Selected(bool isSelected)
 PieceMatrix::PieceMatrix()
 {
 	printf("\x1b[?25l");
-	for (int i = 0; i < GLOBALS::ROW_MATRIX; ++i)
-	{
-		for (int j = 0; j < GLOBALS::COLUMN_MATIX; ++j)
-		{
-			int randType = GenRandomNumber(0, 4);
-			matrix[i][j] = Piece(static_cast<Piece::Type>(randType));
-			Console::DrawPiece(matrix[i][j], j * GLOBALS::FIGURE_SIZE_X + GLOBALS::MATRIX_BASE_X, i * GLOBALS::FIGURE_SIZE_Y + GLOBALS::MATRIX_BASE_Y);
-		}
-	}
 
 	for (int i = 0; i < GLOBALS::ROW_MATRIX; ++i)
-		for (int j = 0; j < GLOBALS::COLUMN_MATIX; ++j)
+		for (int j = 0; j < GLOBALS::COLUMN_MATRIX; ++j)
 			FixUnions(j, i);
 	posX = posY = 0;
 	Selected(true);
@@ -134,32 +124,32 @@ PieceMatrix::PieceMatrix()
 void PieceMatrix::MoveUp()
 {
 	Selected(false);
-	if (posY == 0) return;
-	--posY;
+	if (posY != 0) 
+		--posY;
 	Selected(true);
 }
 
 void PieceMatrix::MoveRight()
 {
 	Selected(false);
-	if (posX == GLOBALS::COLUMN_MATIX - 1) return;
-	++posX;
+	if (posX != GLOBALS::COLUMN_MATRIX - 1)
+		++posX;
 	Selected(true);
 }
 
 void PieceMatrix::MoveDown()
 {
 	Selected(false);
-	if (posY == GLOBALS::ROW_MATRIX - 1) return;
-	++posY;
+	if (posY != GLOBALS::ROW_MATRIX - 1)
+		++posY;
 	Selected(true);
 }
 
 void PieceMatrix::MoveLeft()
 {
 	Selected(false);
-	if (posX == 0) return;
-	--posX;
+	if (posX != 0) 
+		--posX;
 	Selected(true);
 }
 
@@ -169,4 +159,6 @@ void PieceMatrix::Rotate()
 	Console::DrawPiece(matrix[posY][posX], posX * GLOBALS::FIGURE_SIZE_X + GLOBALS::MATRIX_BASE_X, posY * GLOBALS::FIGURE_SIZE_Y + GLOBALS::MATRIX_BASE_Y);
 	FixUnions(posX, posY);
 	Selected(true);
+	//if (level.CheckLevel()) 
+	//	level.NextLevel();
 }

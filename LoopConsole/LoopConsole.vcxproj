@@ -130,7 +130,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Const\Levels.h" />
     <ClCompile Include="Graphics\Console.cpp" />
+    <ClCompile Include="Tablero\Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tablero\PieceMatrix.cpp" />
     <ClCompile Include="Tablero\Piece.cpp" />
@@ -139,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Graphics\Console.h" />
     <ClInclude Include="Const\Const.h" />
+    <ClInclude Include="Tablero\Level.h" />
     <ClInclude Include="Tablero\PieceMatrix.h" />
     <ClInclude Include="Tablero\Piece.h" />
     <ClInclude Include="Utility\Random.h" />

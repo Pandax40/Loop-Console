@@ -5,7 +5,7 @@ namespace GLOBALS
 {
 	inline constexpr int WINDOW_SIZE_X = 575;
 	inline constexpr int WINDOW_SIZE_Y = 1080;
-	inline constexpr int COLUMN_MATIX = 6;
+	inline constexpr int COLUMN_MATRIX = 6;
 	inline constexpr int ROW_MATRIX = 8;
 	inline constexpr int FIGURE_SIZE_X = 9;
 	inline constexpr int FIGURE_SIZE_Y = 5;
