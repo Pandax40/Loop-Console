@@ -1,7 +1,6 @@
 #include <windows.h>
 #include "Tablero/Piece.h" 
 #include "Tablero/PieceMatrix.h"
-#include "Const/Const.h"
 
 #include <wchar.h>
 
@@ -38,9 +37,13 @@ int main()
     windowHandler = GetConsoleWindow();
     if (consoleOutputHandler == INVALID_HANDLE_VALUE or consoleInputHandler == INVALID_HANDLE_VALUE or windowHandler == INVALID_HANDLE_VALUE or !WindowsSetters())
         return GetLastError();
+
+    Console::InitScreen();
+    getchar();
+
     Piece piece(Piece::Type::Line);
     PieceMatrix matrix;
-    while (true)
+    while (true && !Level::LEVELS_FINISHED)
     {
         wchar_t buffer[16];
         DWORD bytesReaded;
