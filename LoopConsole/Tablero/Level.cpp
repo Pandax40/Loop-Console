@@ -5,7 +5,9 @@
 
 Level::Level()
 {
-
+	currentLevel = -1;
+	matrix = nullptr;
+	LEVELS_FINISHED = true;
 }
 
 Level::Level(Piece (*matrix)[GLOBALS::ROW_MATRIX][GLOBALS::COLUMN_MATRIX])
