@@ -65,5 +65,6 @@ int main()
     }
     printf("\x1b[2J");
     Console::EndScreen();
+    Sleep(2000);
     HandlerCloser();
 }

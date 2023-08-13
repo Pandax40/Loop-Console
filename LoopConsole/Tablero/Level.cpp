@@ -2,6 +2,7 @@
 #include "../Const/Levels.h"
 #include "../Utility/Random.h"
 #include "../Graphics/Console.h"
+#include <windows.h>
 
 Level::Level()
 {
@@ -53,7 +54,10 @@ bool Level::NextLevel()
 {
 	++currentLevel;
 	if (currentLevel < sizeof(Levels::Levels) / sizeof(void*))
+	{
+		Sleep(1000);
 		LoadLevel();
+	}	
 	else
 	{
 		LEVELS_FINISHED = true;
