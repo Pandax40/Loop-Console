@@ -64,6 +64,10 @@ void PieceMatrix::Rotate()
 	Console::FixUnions(posX, posY, &matrix);
 	Selected(true);
 	if (level.CheckLevel())
+	{
+		posX = posY = 0;
 		level.NextLevel();
+	}
+		
 		
 }
