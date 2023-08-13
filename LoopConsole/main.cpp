@@ -4,6 +4,8 @@
 
 #include <wchar.h>
 
+#define CP_MULTILINGUE 850
+
 static const wchar_t* keyUp = L"\x1b[A";
 static const wchar_t* keyDown = L"\x1b[B";
 static const wchar_t* keyRight = L"\x1b[C";
@@ -15,9 +17,10 @@ static HWND windowHandler;
 
 bool WindowsSetters()
 {
+    if (!SetConsoleOutputCP(CP_UTF8)) return false;
     if (!SetConsoleMode(consoleOutputHandler, ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING)) return false;
     if (!SetConsoleMode(consoleInputHandler, ENABLE_VIRTUAL_TERMINAL_INPUT)) return false;
-    if (!SetWindowPos(windowHandler, NULL, (1920 / 2) - GLOBALS::WINDOW_SIZE_X / 2, 0, GLOBALS::WINDOW_SIZE_X, 1080, SWP_SHOWWINDOW)) return false;
+    if (!MoveWindow(windowHandler, (GLOBALS::ACTUAL_WINDOWS_SIZE_X / 2) - GLOBALS::WINDOW_SIZE_X / 2, 0, GLOBALS::WINDOW_SIZE_X, GLOBALS::ACTUAL_WINDOWS_SIZE_Y, true)) return false;
     if (!ShowScrollBar(windowHandler, SB_BOTH, false)) return false;
     if (!EnableScrollBar(windowHandler, SB_BOTH, ESB_DISABLE_BOTH)) return false;
     return true;
@@ -28,6 +31,7 @@ void HandlerCloser()
     CloseHandle(consoleInputHandler);
     CloseHandle(consoleOutputHandler);
     CloseHandle(windowHandler);
+    SetConsoleOutputCP(CP_MULTILINGUE);
 }
 
 int main()

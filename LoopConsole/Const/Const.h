@@ -1,16 +1,18 @@
 #pragma once
 #include <string>
+#include <Windows.h>
 
 namespace GLOBALS
 {
 	inline constexpr int WINDOW_SIZE_X = 575;
-	inline constexpr int WINDOW_SIZE_Y = 1080;
+	inline const int ACTUAL_WINDOWS_SIZE_X = GetSystemMetrics(SM_CXSCREEN);
+	inline const int ACTUAL_WINDOWS_SIZE_Y = GetSystemMetrics(SM_CYSCREEN);
 	inline constexpr int COLUMN_MATRIX = 6;
 	inline constexpr int ROW_MATRIX = 8;
 	inline constexpr int FIGURE_SIZE_X = 9;
 	inline constexpr int FIGURE_SIZE_Y = 5;
-	inline constexpr int MATRIX_BASE_X = 8;
-	inline constexpr int MATRIX_BASE_Y = 13;
+	inline const int MATRIX_BASE_X = ACTUAL_WINDOWS_SIZE_X / 240;
+	inline const int MATRIX_BASE_Y = ACTUAL_WINDOWS_SIZE_Y / 83;
 	inline const char* NODE_FIGURE[4][FIGURE_SIZE_Y] = {  "   │ │   ", "  _│ │_  ", " │     │ ", " │_____│ ", "         ",
 												          "  ___    ", " │   │__ ", " │    __│", " │___│   ", "         ",
 														  "  _____  ", " │     │ ", " │_   _│ ", "   │ │   ", "   │_│   ",

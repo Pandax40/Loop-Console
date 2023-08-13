@@ -139,7 +139,7 @@ void Console::FixUnions(int x, int y, Piece (*matrix)[GLOBALS::ROW_MATRIX][GLOBA
 void Console::InitScreen()
 {
 	printf("\x1b[?25l"); //Cursor Hidding
-	printf("\x1b[%d;%dH", GLOBALS::WINDOW_SIZE_Y / 45, GLOBALS::WINDOW_SIZE_X / 26); //Initial Screen Position
+	printf("\x1b[%d;%dH", GLOBALS::ACTUAL_WINDOWS_SIZE_Y / 45, GLOBALS::WINDOW_SIZE_X / 26); //Initial Screen Position
 	printf("\x1b[s  _                      \x1b[u\x1b[1B");
 	printf("\x1b[s | |    ___   ___  _ __  \x1b[u\x1b[1B");
 	printf("\x1b[s | |   / _ \\ / _ \\| '_ \\ \x1b[u\x1b[1B");
@@ -159,7 +159,7 @@ void Console::InitScreen()
 void Console::EndScreen()
 {
 	printf("\x1b[?25l"); //Cursor Hidding
-	printf("\x1b[%d;%dH", GLOBALS::WINDOW_SIZE_Y / 45, GLOBALS::WINDOW_SIZE_X / 23); //Initial Screen Position
+	printf("\x1b[%d;%dH", GLOBALS::ACTUAL_WINDOWS_SIZE_Y / 45, GLOBALS::WINDOW_SIZE_X / 23); //Initial Screen Position
 	printf("\x1b[s  _____ _   _ _____ \x1b[u\x1b[1B");
 	printf("\x1b[s |_   _| | | | ____|\x1b[u\x1b[1B");
 	printf("\x1b[s   | | | |_| |  _|  \x1b[u\x1b[1B");
