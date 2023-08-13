@@ -67,6 +67,7 @@ void PieceMatrix::Rotate()
 	{
 		posX = posY = 0;
 		level.NextLevel();
+		Selected(true);
 	}
 		
 		
