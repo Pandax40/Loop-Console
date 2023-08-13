@@ -6,7 +6,6 @@ void PieceMatrix::Selected(bool isSelected)
 	printf("\x1b[%d;%dH", (posY * GLOBALS::FIGURE_SIZE_Y + GLOBALS::MATRIX_BASE_Y) + 3, (posX * GLOBALS::FIGURE_SIZE_X + GLOBALS::MATRIX_BASE_X) + 5);
 	if (isSelected)
 		printf("\x1b[46m");
-	std::string a;
 	Piece::Type type = matrix[posY][posX].GetType();
 	if (type == Piece::Line and (matrix[posY][posX].GetFace() == Piece::Face::Right or matrix[posY][posX].GetFace() == Piece::Face::Left))
 		std::cout << '_';
