@@ -36,17 +36,25 @@ int main()
     consoleOutputHandler = GetStdHandle(STD_OUTPUT_HANDLE);
     windowHandler = GetConsoleWindow();
     if (consoleOutputHandler == INVALID_HANDLE_VALUE or consoleInputHandler == INVALID_HANDLE_VALUE or windowHandler == INVALID_HANDLE_VALUE or !WindowsSetters())
+    {
+        HandlerCloser();
         return GetLastError();
+    }
 
     Console::InitScreen();
-    getchar();
+    wchar_t buffer[16];
+    DWORD bytesReaded;
+    do
+    {
+        ReadConsole(consoleInputHandler, buffer, 16, &bytesReaded, NULL);
+    } while (memcmp(buffer, keyEnter, bytesReaded * sizeof(wchar_t)));
+    printf("\x1b[2J");
+    
 
     Piece piece(Piece::Type::Line);
     PieceMatrix matrix;
     while (true && !Level::LEVELS_FINISHED)
     {
-        wchar_t buffer[16];
-        DWORD bytesReaded;
         ReadConsole(consoleInputHandler, buffer, 16, &bytesReaded, NULL);
 
         if (!memcmp(buffer, keyUp, bytesReaded * sizeof(wchar_t))) matrix.MoveUp();
@@ -55,4 +63,7 @@ int main()
         else if (!memcmp(buffer, keyLeft, bytesReaded * sizeof(wchar_t))) matrix.MoveLeft();
         else if (!memcmp(buffer, keyEnter, bytesReaded * sizeof(wchar_t))) matrix.Rotate();
     }
+    printf("\x1b[2J");
+    Console::EndScreen();
+    HandlerCloser();
 }
