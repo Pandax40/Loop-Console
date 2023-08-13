@@ -12,7 +12,7 @@ namespace GLOBALS
 	inline constexpr int FIGURE_SIZE_X = 9;
 	inline constexpr int FIGURE_SIZE_Y = 5;
 	inline const int MATRIX_BASE_X = ACTUAL_WINDOWS_SIZE_X / 240;
-	inline const int MATRIX_BASE_Y = ACTUAL_WINDOWS_SIZE_Y / 83;
+	inline const int MATRIX_BASE_Y = ACTUAL_WINDOWS_SIZE_Y / 87;
 	inline const char* NODE_FIGURE[4][FIGURE_SIZE_Y] = {  "   │ │   ", "  _│ │_  ", " │     │ ", " │_____│ ", "         ",
 												          "  ___    ", " │   │__ ", " │    __│", " │___│   ", "         ",
 														  "  _____  ", " │     │ ", " │_   _│ ", "   │ │   ", "   │_│   ",

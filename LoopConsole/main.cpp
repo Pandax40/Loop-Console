@@ -20,7 +20,7 @@ bool WindowsSetters()
     if (!SetConsoleOutputCP(CP_UTF8)) return false;
     if (!SetConsoleMode(consoleOutputHandler, ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING)) return false;
     if (!SetConsoleMode(consoleInputHandler, ENABLE_VIRTUAL_TERMINAL_INPUT)) return false;
-    if (!MoveWindow(windowHandler, (GLOBALS::ACTUAL_WINDOWS_SIZE_X / 2) - GLOBALS::WINDOW_SIZE_X / 2, 0, GLOBALS::WINDOW_SIZE_X, GLOBALS::ACTUAL_WINDOWS_SIZE_Y, true)) return false;
+    if (!MoveWindow(windowHandler, (GLOBALS::ACTUAL_WINDOWS_SIZE_X / 2) - GLOBALS::WINDOW_SIZE_X / 2, 0, GLOBALS::WINDOW_SIZE_X, GLOBALS::ACTUAL_WINDOWS_SIZE_Y-30, true)) return false;
     if (!ShowScrollBar(windowHandler, SB_BOTH, false)) return false;
     if (!EnableScrollBar(windowHandler, SB_BOTH, ESB_DISABLE_BOTH)) return false;
     return true;
